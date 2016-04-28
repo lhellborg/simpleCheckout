@@ -1,0 +1,166 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px 0px 10px 0px;
+}
+
+.inline {
+  display: inline !important;
+}
+
+h4 {
+  display: inline;
+}
+
+h3 {
+  -webkit-margin-after: 0.5em;
+}
+.save {
+    display: block;
+    margin: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+hr {
+  border-color: #BEECBE;
+}
+
+header {
+  position: fixed;
+  display: block;
+  height: 50px;
+  background: #70D058;
+  min-width: 100%;
+  padding: 0px 10px;
+  font-size: 2em;
+  font-family: cursive;
+}
+
+@media screen and (max-width: 650px) {
+  header {
+    font-size: 1.5em;
+  }
+
+  .progress-bar {
+    display: none;
+  }
+
+  section.form {
+    padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .company-page {
+    display: none;
+  }
+
+  .company-name {
+    display: block;
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header {
+    padding: 0px;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  section.form {
+    font-size: 2em;
+  }
+
+  .company-name {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 651px) {
+  section.form {
+    padding-top: 100px;
+  }
+}
+
+section {
+  padding: 0px 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.company-page {
+  float: right;
+  margin-right: 20px;
+}
+
+.progress-bar {
+  position: fixed;
+  margin-top: 50px;
+  width: 100%;
+  height: 50px;
+  background: #ABD5F9;
+  font-size: 1.5em;
+  font-style: italic;
+  text-align: center;
+}
+
+img {
+  width: 50%;
+}
+
+section.form, section.order-review{
+  display: block;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.form {
+  /*font-size: 2em;*/
+}
+
+section.form input {
+  display: block;
+  font-size: 1em;
+}
+
+.cc-warning {
+  font-size: 0.5em;
+  margin-bottom: 1em;
+}
+
+.your-order {
+  border: 1px solid;
+  max-width: 100%;
+}
+
+.payment {
+  margin-left: 15px;
+}
+
+.check-correct {
+  margin-top: 15px;
+  display: flex;
+}
+
+.check {
+  margin: 15px;
+}
+
+.radioBtn {
+  display: inline-flex;
+}
+
+div.container.style-scope.gold-cc-cvc-input {
+  display: inline-flex;
+}
+
+#submit {
+    font-size: larger;
+    color: green;
+}

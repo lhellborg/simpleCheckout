@@ -1,0 +1,8 @@
+{
+  "name": "polymer-project",
+  "dependencies": {
+    "gold-cc-cvc-input": "PolymerElements/gold-cc-cvc-input#^1.0.0",
+    "iron-form": "PolymerElements/iron-form#^1.0.0",
+    "gold-cc-input": "PolymerElements/gold-cc-input#^1.0.0"
+  }
+}

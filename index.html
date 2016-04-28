@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js">
+    </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.js"></script>
+
+    <!-- 2. Use an HTML Import to bring in some elements. -->
+    <link rel="import" href="bower_components/gold-cc-input/gold-cc-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-input-container.html">
+    <link rel="import" href="bower_components/iron-icon/iron-icon.html">
+  <title>Quiz - Nice Form</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <header>
+    <span class="company-name"><i class="fa fa-heart" style="color:green;text-shadow:2px 2px 4px #000000;"></i> I WANT IT <i class="fa fa-heart" style="color:green;text-shadow:2px 2px 4px #000000;"></i></span>
+    <span class="company-page">Checkout Page</span>
+  </header>
+
+  <section class="progress-bar">
+    <progress max="4" value="0" id="progress"></progress>
+    <p id"progressMessage"></p>
+  </section>
+
+  <section class="order form">
+    <h3>Your Order</h3>
+    <img src="images/NES-Console-Set.png">
+     <h4>   Total $550.00</h4>
+
+    <form class="radioBtn">
+      <label class="check-correct">Do you want to order now?</label>
+        <label for="yesOrder" class="check">Yes
+          <input type="radio" name="billingAdress" value="yes" id="yesOrder" >
+        </label>
+        <label for="noOrder" class="check">No
+          <input type="radio" name="billingAdress" value="no"  id="noOrder" >
+        </label>
+    </form>
+  <hr>
+  </section>
+
+  <section class="order-review" style='display:none' id="inputForm">
+    <h3>Where do you want us to send this?</h3>
+    <button class="save" onclick="getLocation()">To my location where I am now</button>
+    <p id="demo">Click the button to get your position. <br><span style="font-size:x-small">Click only once. A popup window will appear.</span></p>
+    <p>...or fill in the form below</p>
+
+    <label for="fullName">
+      <input type="text" placeholder="Full name" required autocomplete="name" id="fullName">
+    </label>
+    <label for="adress1">
+      <input type="text" placeholder="Address Line 1" required autocomplete="address-line1" id="adress1">
+    </label>
+    <label for="adress2">
+      <input type="text" placeholder="Address Line 2" required autocomplete="address-line2" id="adress2">
+    </label>
+    <label for="adress3">
+      <input type="text" placeholder="Address Line 3" autocomplete="address-line3" id="adress3">
+    </label>
+
+
+  <hr>
+    <label class="check-correct"><h3>How do you want to pay?</h3></label>
+    <form class="radioBtn">
+      <label for="creditCard" class="payment">credit card
+        <input type="radio" name="polymer" value="credit card" id="creditCard" >
+      </label>
+      <label for="other" class="payment">Cash
+        <input type="radio" name="polymer" value="other"  id="other" >
+      </label>
+    </form>
+
+    <!-- from gold element in Polymer -->
+    <div id="goldElement" style="display:none">
+    <gold-cc-input auto-validate="" required="" label="Credit card" tabindex="0" aria-disabled="false" class="x-scope gold-cc-input-0">
+      <paper-input-container id="container" class="style-scope gold-cc-input x-scope paper-input-container-0">
+        <div class="floated-label-placeholder style-scope paper-input-container">&nbsp;</div>
+        <template is="dom-if" class="style-scope paper-input-container"></template>
+        <div class="input-content style-scope paper-input-container">
+          <div class="label-and-input-container style-scope paper-input-container" id="labelAndInputContainer" style="position: relative;">
+            <label class="style-scope gold-cc-input" id="paper-input-label-2">Auto-validating</label>
+            <div class="container style-scope gold-cc-input">
+              <input is="iron-input" id="input" type="tel" maxlength="30" allowed-pattern="[0-9 ]" prevent-invalid-input="" autocomplete="cc-number" class="style-scope gold-cc-input" required="" placeholder="" aria-describedby="" aria-labelledby="paper-input-label-2">
+              <div class="icon-container style-scope gold-cc-input">
+                <iron-icon id="icon" class="style-scope gold-cc-input x-scope iron-icon-0"></iron-icon>
+              </div>
+            </div>
+            <template is="dom-if" class="style-scope gold-cc-input"></template>
+          </div>
+        </div>
+        <div class="underline style-scope paper-input-container">
+          <div class="unfocused-line style-scope paper-input-container"></div>
+          <div class="focused-line style-scope paper-input-container"></div>
+        </div>
+        <div class="add-on-content style-scope paper-input-container"></div>
+      </paper-input-container>
+    </gold-cc-input>
+
+    <gold-cc-cvc-input required="" auto-validate="" error-message="Please enter a valid CVC" tabindex="0" aria-disabled="false" class="x-scope gold-cc-cvc-input-0" focused="">
+      <paper-input-container id="container" class="style-scope gold-cc-cvc-input x-scope paper-input-container-0">
+        <div class="floated-label-placeholder style-scope paper-input-container">&nbsp;</div>
+        <template is="dom-if" class="style-scope paper-input-container"></template>
+        <div class="input-content style-scope paper-input-container">
+          <div class="label-and-input-container style-scope paper-input-container" id="labelAndInputContainer" style="position: relative;">
+            <label class="style-scope gold-cc-cvc-input" id="paper-input-label-7">CVC</label>
+            <div class="container style-scope gold-cc-cvc-input">
+              <input is="iron-input" id="input" prevent-invalid-input="" allowed-pattern="[0-9]" type="tel" autocomplete="cc-csc" class="style-scope gold-cc-cvc-input" required="" placeholder="" aria-describedby="paper-input-add-on-1" aria-labelledby="paper-input-label-7" maxlength="3">
+              <iron-icon id="icon" src="https://elements.polymer-project.org/bower_components/gold-cc-cvc-input/cvc_hint.png" alt="cvc" class="style-scope gold-cc-cvc-input x-scope iron-icon-0">
+                <img draggable="false" src="https://elements.polymer-project.org/bower_components/gold-cc-cvc-input/cvc_hint.png" class="style-scope iron-icon" style="width: 100%; height: 100%;">
+              </iron-icon>
+              <iron-icon id="amexIcon" src="https://elements.polymer-project.org/bower_components/gold-cc-cvc-input/cvc_hint_amex.png" alt="amex cvc" class="style-scope gold-cc-cvc-input x-scope iron-icon-0" hidden="">
+                <img draggable="false" src="https://elements.polymer-project.org/bower_components/gold-cc-cvc-input/cvc_hint_amex.png" class="style-scope iron-icon" style="width: 100%; height: 100%;">
+              </iron-icon>
+            </div>
+            <template is="dom-if" class="style-scope gold-cc-cvc-input"></template>
+          </div>
+        </div>
+        <div class="underline is-invalid style-scope paper-input-container">
+          <div class="unfocused-line style-scope paper-input-container"></div>
+          <div class="focused-line style-scope paper-input-container"></div>
+        </div>
+        <div class="add-on-content is-invalid style-scope paper-input-container">
+          <paper-input-error class="style-scope gold-cc-cvc-input x-scope paper-input-error-0" add-on="" id="paper-input-add-on-1" invalid="">
+            Please enter a valid CVC
+          </paper-input-error>
+        </div>
+      </paper-input-container>
+    </gold-cc-cvc-input>
+    </div>
+
+    <div id="otherPayment" style="display:none"><h3>Cash will be fine!</h3></div>
+    <hr>
+    <label class="check-correct">Billing Address <=> Shipping Adress?</label>
+    <form class="radioBtn">
+      <label for="yes" class="check">Yes
+        <input type="radio" name="billingAdress" value="yes" id="yes" checked="checked" >
+      </label>
+      <label for="no" class="check">No
+        <input type="radio" name="billingAdress" value="no"  id="no" >
+      </label>
+    </form>
+
+    <div id="billingAdress" style='display:none'>
+      <h3>Billing adress:</h3>
+      <label for="fullName">
+        <input type="text" placeholder="Full name" autocomplete="name" id="fullName">
+      </label>
+      <label for="adress1">
+        <input type="text" placeholder="Address Line 1" autocomplete="address-line1" id="adress1">
+      </label>
+      <label for="adress2">
+        <input type="text" placeholder="Address Line 2" autocomplete="address-line2" id="adress2">
+      </label>
+      <label for="adress3">
+        <input type="text" placeholder="Address Line 3" autocomplete="address-line3" id="adress3">
+      </label>
+    </div>
+
+    <br>
+    <input id="submit" type="submit">
+
+  </section>
+
+  <section class="order-review" style='display:none' id="goBack">
+    <button class="save" id="saveBtn">Save order</button>
+    <div id="saveOrder" style="display:none">
+      <h3>Your order has been saved.</h3>
+      <label>When do you want to order?
+        <input type="datetime-local">
+      </label>
+    </div>
+    <a href="#">Go back to the store</a>
+  </section>
+
+  <script>
+  // show billingadress fields
+  $(document).ready(function() {
+    $('#saveBtn').click(function() {
+      $('#saveOrder').show();
+    });
+
+    $('#no').click(function() {
+      $('#billingAdress').show();
+    });
+    $('#yes').click(function() {
+      $('#billingAdress').hide();
+    });
+
+    // show/hide ordering form
+    $('#noOrder').click(function() {
+      $('#goBack').show();
+      $('#inputForm').hide();
+    });
+    $('#yesOrder').click(function() {
+      $('#inputForm').show();
+      $('#goBack').hide();
+    });
+
+    // show/hide different payments
+    $('#creditCard').click(function() {
+      $('#goldElement').show();
+      $('#otherPayment').hide();
+      $("#progress").attr("max", "5")
+    });
+    $('#other').click(function() {
+      $('#otherPayment').show();
+      $('#goldElement').hide();
+      $("#progress").attr("max", "3")
+    });
+
+  });
+
+  // script for progressbar
+$("#inputForm input").keyup(function() {
+  // calculate progress
+  var numValid = 0;
+  var progress = $("#progress");
+  $("#inputForm input[required]").each(function() {
+      if (this.validity.valid) {
+          numValid++;
+      }
+  progress.attr("value", numValid)
+  });
+console.log(numValid)
+
+
+}); //end progressbar
+
+  // script for get location from Geo location example
+  function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition, showError);
+  } else {
+    var status = document.getElementById("demo");
+    status.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  var geoPoint = position.coords.latitude + "," + position.coords.longitude;
+  var status = document.getElementById("demo");
+  status.innerHTML = "Your location is: Lat: " + position.coords.latitude + " , Lon:  " + position.coords.longitude;
+  console.log(position)
+}
+
+// show our errors for debuging
+function showError(error) {
+  var x = document.getElementById("demo");
+  switch (error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "Denied the request for Geolocation. Maybe, ask the user in a more polite way?"
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable.";
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get location timed out.";
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred :(";
+      break;
+  }
+}
+    // submit button
+    var submit = document.querySelector('#submit');
+    submit.onclick = function () {
+      alert("All of your information was valid, right? I'll just go ahead and assume that it is ;)\n\nThanks for your submission!");
+    };
+  </script>
+</body>
+</html>
